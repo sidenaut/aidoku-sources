@@ -2,11 +2,37 @@
 	"info": {
 		"id": "en.mangadistrict",
 		"name": "MangaDistrict",
-		"version": 1,
+		"version": 2,
 		"url": "https://mangadistrict.com",
 		"contentRating": 2,
 		"languages": [
 			"en"
-		]
+		],
+		"minAppVersion": "0.7.1"
+	},
+	"listings": [
+		{
+			"id": "latest",
+			"name": "Latest Updates"
+		},
+		{
+			"id": "trending",
+			"name": "Trending"
+		},
+		{
+			"id": "views",
+			"name": "Popular"
+		},
+		{
+			"id": "new-manga",
+			"name": "New Releases"
+		},
+		{
+			"id": "alphabet",
+			"name": "A-Z"
+		}
+	],
+	"config": {
+		"breakingChangeVersion": 2
 	}
 }
