@@ -12,6 +12,12 @@
 		"placeholder": "Artist name"
 	},
 	{
+		"type": "text",
+		"id": "release",
+		"title": "Year of Release",
+		"placeholder": "Year"
+	},
+	{
 		"type": "sort",
 		"id": "m_orderby",
 		"canAscend": false,
