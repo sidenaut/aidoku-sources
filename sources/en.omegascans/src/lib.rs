@@ -4,7 +4,7 @@ use aidoku::{
 	MangaPageResult, Page, PageContent, Result, Source,
 	alloc::{String, Vec, string::ToString},
 	helpers::uri::QueryParameters,
-	imports::net::Request,
+	imports::{net::Request, std::send_partial_result},
 	prelude::*,
 };
 
@@ -98,14 +98,21 @@ impl Source for OmegaScans {
 		// the series id is required to fetch chapters, so the details are always requested
 		let series =
 			Request::get(format!("{API_URL}/series/{}", manga.key))?.json_owned::<Series>()?;
+		let series_id = series.id;
+
+		if needs_details {
+			manga.copy_from(series.into());
+			if needs_chapters {
+				send_partial_result(&manga);
+			}
+		}
 
 		if needs_chapters {
 			let mut chapters = Vec::new();
 			let mut page = 1;
 			loop {
 				let response = Request::get(format!(
-					"{API_URL}/chapter/query?page={page}&perPage=1000&series_id={}",
-					series.id
+					"{API_URL}/chapter/query?page={page}&perPage=1000&series_id={series_id}"
 				))?
 				.json_owned::<Paginated<ChapterItem>>()?;
 				let has_next_page = response.meta.has_next_page();
@@ -121,10 +128,6 @@ impl Source for OmegaScans {
 				page += 1;
 			}
 			manga.chapters = Some(chapters);
-		}
-
-		if needs_details {
-			manga.copy_from(series.into());
 		}
 
 		Ok(manga)
