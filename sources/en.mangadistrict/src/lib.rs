@@ -58,6 +58,8 @@ impl Impl for MangaDistrict {
 			default_viewer: Viewer::Webtoon,
 			datetime_format: "MMMM d, yyyy".into(),
 			search_manga_selector: "div.page-listing-item".into(),
+			// the first paragraph repeats the title
+			details_description_selector: "div.summary__content > p:nth-child(2)".into(),
 			// the first page break is a placeholder image
 			page_list_selector: "div.page-break:not(:has(#image-99999))".into(),
 			..Default::default()
