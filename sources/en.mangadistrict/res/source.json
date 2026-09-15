@@ -26,10 +26,6 @@
 		{
 			"id": "new-manga",
 			"name": "New Releases"
-		},
-		{
-			"id": "alphabet",
-			"name": "A-Z"
 		}
 	],
 	"config": {
