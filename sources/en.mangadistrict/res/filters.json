@@ -13,7 +13,7 @@
 	},
 	{
 		"type": "sort",
-		"id": "sort",
+		"id": "m_orderby",
 		"canAscend": false,
 		"options": [
 			"Relevance",
@@ -30,7 +30,7 @@
 	},
 	{
 		"type": "multi-select",
-		"id": "status",
+		"id": "status[]",
 		"title": "Status",
 		"usesTagStyle": true,
 		"options": [
@@ -50,7 +50,7 @@
 	},
 	{
 		"type": "multi-select",
-		"id": "genre",
+		"id": "genre[]",
 		"title": "Genre",
 		"isGenre": true,
 		"options": [
@@ -110,10 +110,12 @@
 			"Military",
 			"Monster Girls",
 			"Monsters",
+			"Motion",
 			"Music",
 			"Mystery",
 			"Ninja",
 			"Nudity",
+			"OEL",
 			"One Shot",
 			"Parody Anime",
 			"Person in a Strange World",
@@ -214,10 +216,12 @@
 			"military",
 			"monster-girls",
 			"monsters",
+			"motion",
 			"music",
 			"mystery",
 			"ninja",
 			"nudity",
+			"oel",
 			"one-shot",
 			"parody-anime",
 			"person-in-a-strange-world",
@@ -267,14 +271,15 @@
 		"id": "op",
 		"title": "Genre condition",
 		"hideFromHeader": true,
-		"default": "OR",
-		"options": ["AND", "OR"]
+		"options": ["OR", "AND"],
+		"ids": ["", "1"]
 	},
 	{
 		"type": "select",
 		"id": "adult",
 		"title": "Adult content",
 		"usesTagStyle": true,
-		"options": ["Yes", "No", "Only"]
+		"options": ["Yes", "No", "Only"],
+		"ids": ["", "0", "1"]
 	}
 ]
